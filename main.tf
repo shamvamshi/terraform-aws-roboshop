@@ -6,7 +6,7 @@ resource "aws_lb_target_group" "main" {
   deregistration_delay = 120 # Deregistration delay is the time (default 300s) an ALB/NLB waits to let in-flight requests finish after a target is removed.
   health_check {
     healthy_threshold = 2
-    interval = 30 # for every 5 seconds healthcheck should happen
+    interval = 5 # for every 5 seconds healthcheck should happen
     matcher = "200-299" # success responces
     path = local.health_check_path # foe every backend there is a health you can check whether it is healthy or not
     port = local.tg_port
